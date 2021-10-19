@@ -1,0 +1,9 @@
+{
+  "issueKeyTestcaseValues": {},
+  "testManagerBasePath": "https://testmanager.mk-dev.com/",
+  "defaultProject": {
+    "id": "6d885f62-7a77-4642-8c1f-0b432197c179",
+    "name": "MyProject",
+    "key": "MYP"
+  }
+}
