@@ -50,6 +50,7 @@ pipeline {
                     orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}", 
                     packagePath: "${WORKSPACE}\\Output", 
                     traceLevel: 'None'
+                )
             }
         }
 
