@@ -41,7 +41,10 @@ pipeline {
 	                      outputPath: "Output\\${env.BUILD_NUMBER}",
 	                      projectJsonPath: "project.json",
 	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-	                      useOrchestrator: false,
+	                      useOrchestrator: true,
+						  orchestratorAddress: "${UIPATH_ORCH_URL}", 
+						orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+						credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'),
 						  traceLevel: "None"
 	        )
 	            }
