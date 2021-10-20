@@ -49,7 +49,7 @@ pipeline {
             steps {
                 echo "Deploying Package with ${WORKSPACE}"
                 bat(
-                    "C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\\project.json\""
+                    "'C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe' publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\\project.json\""
                 )
                 UiPathDeploy (
                     credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'), 
