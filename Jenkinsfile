@@ -35,7 +35,8 @@ pipeline {
                     parametersFilePath: '', 
                     testResultsOutputPath: '', 
                     testTarget: TestProject(environments: '', testProjectPath: 'project.json'), 
-                    traceLevel: 'None'
+                    traceLevel: 'None',
+                    timeout: 10000
                 )
                 }
                 }
