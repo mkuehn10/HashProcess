@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo "Building Package with ${WORKSPACE}"
                 bat(
-                    "\"C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe\" publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\""
+                    "\"C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe\" publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\" --new-version \"${MAJOR}.${MINOR}.${env.BUILD_NUMBER}\""
                 )
                 // UiPathPack (
                 //     outputPath: "${WORKSPACE}\\Output", 
