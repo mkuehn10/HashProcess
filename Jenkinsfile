@@ -24,7 +24,7 @@ pipeline {
                     parametersFilePath: '', 
                     testResultsOutputPath: '', 
                     testTarget: TestProject(environments: '', testProjectPath: 'project.json'), 
-                    traceLevel: 'None',
+                    traceLevel: 'Verbose',
                     timeout: 10000
                 )
             }
