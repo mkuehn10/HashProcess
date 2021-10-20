@@ -1,1 +1,1 @@
-[{"HashMethod":"haval256,5","Result":"1a7cf5c88e84d2492077758389404e45acd142ffe87535d7204a7dabbd33273e"},{"HashMethod":"haval224,5","Result":"c225a1f138be856a2a5d8c9ab2630f4a57d0b82c91c3177bdb0253e9"},{"HashMethod":"haval192,5","Result":"9161a96775052e1696c555dd0be0db90381defcf2fa959b3"}]
+[{"HashMethod":"haval160,3","Result":"300c5967c3bbd8b1ad580c89ba38c18b2a507fd2"},{"HashMethod":"haval224,3","Result":"fe7a818f332516d2d25b8307c02544e76ca5522e0c38b47663886548"}]
