@@ -15,12 +15,13 @@ pipeline {
         stage("Build Package") {
             steps {
                 echo "Building Package with ${WORKSPACE}"
-                UiPathPack 
-                outputPath: "${WORKSPACE}\\Output", 
-                outputType: 'Process', 
-                projectJsonPath: "${WORKSPACE}", 
-                traceLevel: 'None', 
-                version: AutoVersion()
+                UiPathPack (
+                    outputPath: "${WORKSPACE}\\Output", 
+                    outputType: 'Process', 
+                    projectJsonPath: "${WORKSPACE}", 
+                    traceLevel: 'None', 
+                    version: AutoVersion()
+                )
             }
         }
 
