@@ -12,18 +12,7 @@ pipeline {
 
     stages {
 
-        // stage("Build Tests") {
-        //     steps {
-        //         echo "Building Tests with ${WORKSPACE}"
-        //         UiPathPack (
-        //             outputPath: "Output\\Tests\\${env.BUILD_NUMBER}", 
-        //             outputType: 'Tests', 
-        //             projectJsonPath: "${WORKSPACE}", 
-        //             traceLevel: 'None', 
-        //             version: AutoVersion()
-        //         )
-        //     }
-        // }
+
 
         stage("Run Tests") {
             steps {
@@ -38,8 +27,8 @@ pipeline {
                     traceLevel: 'None',
                     timeout: 10000
                 )
-                }
-                }
+            }
+        }
     
 
 
