@@ -50,7 +50,7 @@ pipeline {
 					echo "Deploying ${BRANCH_NAME} to Orchestrator"
 					UiPathDeploy (
 						credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'), 
-						//entryPointPaths: 'Main.xaml', 
+						entryPointPaths: '', 
 						environments: '', 
 						folderName: "${UIPATH_ORCH_FOLDER_NAME}", 
 						orchestratorAddress: "${UIPATH_ORCH_URL}", 
