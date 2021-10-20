@@ -36,11 +36,11 @@ pipeline {
 				steps {
 					echo "Building package with ${WORKSPACE}"
 					UiPathPack (
-						outputPath: "${WORKSPACE}\\Output", 
+						outputPath: "Output\\Tests\${env.BUILD_NUMBER}", 
 						outputType: 'Tests', 
-						projectJsonPath: "${WORKSPACE}", 
+						projectJsonPath: "project.json", 
 						traceLevel: 'None', 
-						version: AutoVersion()
+						version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"]
 					)
 				}
 			}
@@ -104,15 +104,15 @@ pipeline {
 						}
 				}
 				steps {
-					echo "Building package with ${WORKSPACE}"
-					UiPathPack (
-						  outputPath: "Output\\${env.BUILD_NUMBER}",
-						  projectJsonPath: "project.json",
-						  version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-						  useOrchestrator: false, 
-						traceLevel: 'None'
-						)
-					}
+	                echo "Building..with ${WORKSPACE}"
+	                UiPathPack (
+	                      outputPath: "Output\\${env.BUILD_NUMBER}",
+	                      projectJsonPath: "project.json",
+	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
+	                      useOrchestrator: false,
+						  traceLevel: "None"
+	        )
+	            }
 	        }			
 			
 	         // Deploy to Production Step
@@ -129,7 +129,7 @@ pipeline {
 	                orchestratorAddress: "${UIPATH_ORCH_URL}",
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
 	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
-	                environments: 'DEV',
+	                //environments: 'DEV',
 	                credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '3c43701f-a8d8-4fd9-a4d1-1ed40827bc2b'],
 					traceLevel: "None",
 					entryPointPaths: "Main.xaml"
