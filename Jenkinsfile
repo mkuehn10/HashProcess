@@ -133,7 +133,6 @@ pipeline {
 	                packagePath: "Output\\${env.BUILD_NUMBER}",
 	                orchestratorAddress: "${UIPATH_ORCH_URL}",
 	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
 	                environments: 'DEV',
 	                credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '3c43701f-a8d8-4fd9-a4d1-1ed40827bc2b'],
 					traceLevel: "None",
