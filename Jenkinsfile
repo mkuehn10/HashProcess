@@ -35,9 +35,6 @@ pipeline {
         stage("Build Package") {
             steps {
                 echo "Building Package with ${WORKSPACE}"
-                dir ("Output") {
-                    deleteDir()
-                }
                 UiPathPack (
                     outputPath: "${WORKSPACE}\\Output", 
                     outputType: 'Process', 
@@ -51,6 +48,9 @@ pipeline {
         stage("Deploy Package") {
             steps {
                 echo "Deploying Package with ${WORKSPACE}"
+                bat(
+                    "C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\\project.json\""
+                )
                 UiPathDeploy (
                     credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'), 
                     entryPointPaths: 'Main.xaml', 
