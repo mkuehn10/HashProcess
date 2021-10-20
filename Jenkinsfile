@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo "Building Tests with ${WORKSPACE}"
                 UiPathPack (
-                    outputPath: "${WORKSPACE}\\Output\\Tests", 
+                    outputPath: "Output\\Tests\\${env.BUILD_NUMBER}", 
                     outputType: 'Tests', 
                     projectJsonPath: "${WORKSPACE}", 
                     traceLevel: 'None', 
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo "Building Package with ${WORKSPACE}"
                 UiPathPack (
-                    outputPath: "${WORKSPACE}\\Output", 
+                    outputPath: "Output\\${env.BUILD_NUMBER}", 
                     outputType: 'Process', 
                     projectJsonPath: "${WORKSPACE}", 
                     traceLevel: 'None', 
