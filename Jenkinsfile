@@ -42,7 +42,7 @@ pipeline {
                     outputPath: "${WORKSPACE}\\Output", 
                     outputType: 'Process', 
                     projectJsonPath: "${WORKSPACE}", 
-                    traceLevel: 'None', 
+                    traceLevel: 'Verbose', 
                     version: AutoVersion()
                 )
             }
@@ -59,7 +59,7 @@ pipeline {
                     orchestratorAddress: "${UIPATH_ORCH_URL}", 
                     orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}", 
                     packagePath: "${WORKSPACE}\\Output", 
-                    traceLevel: 'None'
+                    traceLevel: 'Verbose'
                 )
             }
         }
