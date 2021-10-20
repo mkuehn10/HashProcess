@@ -44,7 +44,7 @@ pipeline {
                 //     projectJsonPath: "${WORKSPACE}", 
                 //     traceLevel: 'Verbose', 
                 //     version: AutoVersion()
-                )
+                //)
             }
         }
 
