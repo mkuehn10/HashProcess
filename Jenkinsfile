@@ -35,12 +35,15 @@ pipeline {
         stage("Build Package") {
             steps {
                 echo "Building Package with ${WORKSPACE}"
-                UiPathPack (
-                    outputPath: "${WORKSPACE}\\Output", 
-                    outputType: 'Process', 
-                    projectJsonPath: "${WORKSPACE}", 
-                    traceLevel: 'Verbose', 
-                    version: AutoVersion()
+                bat(
+                    "\"C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe\" publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}\""
+                )
+                // UiPathPack (
+                //     outputPath: "${WORKSPACE}\\Output", 
+                //     outputType: 'Process', 
+                //     projectJsonPath: "${WORKSPACE}", 
+                //     traceLevel: 'Verbose', 
+                //     version: AutoVersion()
                 )
             }
         }
@@ -48,9 +51,6 @@ pipeline {
         stage("Deploy Package") {
             steps {
                 echo "Deploying Package with ${WORKSPACE}"
-                bat(
-                    "\"C:\\Program Files\\UiPath\\Studio\\UiPath.Studio.CommandLine.exe\" publish --project-path \"${WORKSPACE}\\project.json\" --target Custom --feed \"${WORKSPACE}""
-                )
                 UiPathDeploy (
                     credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'), 
                     entryPointPaths: 'Main.xaml', 
@@ -58,7 +58,8 @@ pipeline {
                     folderName: "${UIPATH_ORCH_FOLDER_NAME}", 
                     orchestratorAddress: "${UIPATH_ORCH_URL}", 
                     orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}", 
-                    packagePath: "${WORKSPACE}\\Output", 
+                    //packagePath: "${WORKSPACE}\\Output", 
+                    packagePath: "${WORKSPACE}",
                     traceLevel: 'Verbose'
                 )
             }
