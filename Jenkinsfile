@@ -108,8 +108,13 @@ pipeline {
 	                UiPathPack (
 	                      outputPath: "Output\\${env.BUILD_NUMBER}",
 	                      projectJsonPath: "project.json",
+						  outputType: 'Process',
 	                      version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-	                      useOrchestrator: false,
+	                      useOrchestrator: true,
+						  orchestratorAddress: "${UIPATH_ORCH_URL}",
+	                orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+	                folderName: "${UIPATH_ORCH_FOLDER_NAME}",
+					credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '3c43701f-a8d8-4fd9-a4d1-1ed40827bc2b'],
 						  traceLevel: "None"
 	        )
 	            }
