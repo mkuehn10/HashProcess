@@ -39,7 +39,7 @@ pipeline {
                     deleteDir()
                 }
                 UiPathPack (
-                    outputPath: "Output\\${env.BUILD_NUMBER}", 
+                    outputPath: "${WORKSPACE}\\Output", 
                     outputType: 'Process', 
                     projectJsonPath: "${WORKSPACE}", 
                     traceLevel: 'None', 
