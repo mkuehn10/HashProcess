@@ -1,1 +1,1 @@
-[{"HashMethod":"haval160,3","Result":"300c5967c3bbd8b1ad580c89ba38c18b2a507fd2"},{"HashMethod":"haval224,3","Result":"fe7a818f332516d2d25b8307c02544e76ca5522e0c38b47663886548"}]
+[{"HashMethod":"crc32","Result":"44ab5e0d"},{"HashMethod":"haval128,4","Result":"31ba43a330bab68b3a974cfda488deca"}]
