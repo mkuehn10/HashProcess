@@ -12,6 +12,19 @@ pipeline {
 
     stages {
 
+        stage("Build Tests") {
+            steps {
+                echo "Building Tests with ${WORKSPACE}"
+                UiPathPack (
+                    outputPath: "${WORKSPACE}\\Output\\Tests", 
+                    outputType: 'Tests', 
+                    projectJsonPath: "${WORKSPACE}", 
+                    traceLevel: 'None', 
+                    version: AutoVersion()
+                )
+            }
+        }
+
         stage("Build Package") {
             steps {
                 echo "Building Package with ${WORKSPACE}"
