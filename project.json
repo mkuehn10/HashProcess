@@ -42,6 +42,7 @@
       {
         "editingStatus": "Publishable",
         "testCaseId": "702f9a82-20e2-4fd9-a2b3-a272ef92e965",
+        "dataVariationFilePath": ".variations\\Results_Sheet1.json",
         "fileName": "HashProcessTestCase_1.xaml"
       }
     ],
