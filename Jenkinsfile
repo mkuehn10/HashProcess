@@ -78,8 +78,50 @@ pipeline {
 	            }
 	        }
 
-			stage('Deploy to UAT') {
-	            steps {
+			// stage('Deploy to UAT') {
+	        //     steps {
+	        //         echo "Deploying ${BRANCH_NAME} to UAT "
+	        //         UiPathDeploy (
+	        //         packagePath: "Output\\${env.BUILD_NUMBER}",
+	        //         orchestratorAddress: "${UIPATH_ORCH_URL}",
+	        //         orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+	        //         folderName: "${UIPATH_ORCH_FOLDER_NAME}",
+	        //         environments: 'DEV',
+	        //         credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '3c43701f-a8d8-4fd9-a4d1-1ed40827bc2b'],
+			// 		traceLevel: "None",
+			// 		entryPointPaths: "Main.xaml"
+	        //         //credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'), 
+	
+
+	        // )
+	        //     }
+	        // }
+	// Building Package
+	        stage('Build Process') {
+				when {
+					expression {
+						currentBuild.result == null || currentBuild.result == 'SUCCESS'
+						}
+				}
+				steps {
+					echo "Building package with ${WORKSPACE}"
+					UiPathPack (
+						  outputPath: "Output\\${env.BUILD_NUMBER}",
+						  projectJsonPath: "project.json",
+						  version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
+						  useOrchestrator: false,
+						)
+					}
+	        }			
+			
+	         // Deploy to Production Step
+	        stage('Deploy Process') {
+				when {
+					expression {
+						currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+						}
+				}
+				steps {
 	                echo "Deploying ${BRANCH_NAME} to UAT "
 	                UiPathDeploy (
 	                packagePath: "Output\\${env.BUILD_NUMBER}",
@@ -90,13 +132,11 @@ pipeline {
 	                credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '3c43701f-a8d8-4fd9-a4d1-1ed40827bc2b'],
 					traceLevel: "None",
 					entryPointPaths: "Main.xaml"
-	                //credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'), 
-	
-
-	        )
-	            }
-	        }
-	
+					)
+				}   
+			}	
+		
+	    }
 
 	
 
