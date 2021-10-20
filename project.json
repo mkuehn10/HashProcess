@@ -43,6 +43,11 @@
         "editingStatus": "Publishable",
         "testCaseId": "702f9a82-20e2-4fd9-a2b3-a272ef92e965",
         "fileName": "HashProcessTestCase_1.xaml"
+      },
+      {
+        "editingStatus": "Publishable",
+        "testCaseId": "42f08cbc-47f6-4961-a171-6c235401d22a",
+        "fileName": "HashProcessTestCase_2.xaml"
       }
     ],
     "modernBehavior": true
