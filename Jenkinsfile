@@ -38,6 +38,21 @@ pipeline {
             }
         }
 
+        stage("Deploy Package") {
+            steps {
+                echo "Deploying Package with ${WORKSPACE}"
+                UiPathDeploy (
+                    credentials: UserPass('87c9735b-8a1c-4292-b0f8-d51f63199b35'), 
+                    entryPointPaths: 'Main.xaml', 
+                    environments: '', 
+                    folderName: "${UIPATH_ORCH_FOLDER_NAME}", 
+                    orchestratorAddress: "${UIPATH_ORCH_URL}", 
+                    orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}", 
+                    packagePath: "${WORKSPACE}\\Output", 
+                    traceLevel: 'None'
+            }
+        }
+
     }
 
 
