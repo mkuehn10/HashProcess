@@ -1,1 +1,1 @@
-[{"HashMethod":"gost","Result":"cc54f6b5a095dfc6cb6eb17dcbf8cc15a4f0ca7a154a2724b7226797c9d7457c"},{"HashMethod":"crc32","Result":"44ab5e0d"},{"HashMethod":"haval160,3","Result":"300c5967c3bbd8b1ad580c89ba38c18b2a507fd2"}]
+[{"HashMethod":"gost","Result":"cc54f6b5a095dfc6cb6eb17dcbf8cc15a4f0ca7a154a2724b7226797c9d7457c"},{"HashMethod":"adler32","Result":"07c4024c"},{"HashMethod":"crc32","Result":"44ab5e0d"}]
